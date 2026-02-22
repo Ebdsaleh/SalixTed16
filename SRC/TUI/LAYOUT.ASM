@@ -8,7 +8,7 @@ INCLUDE SALIX.INC
 .STACK 100H
 
 EXTRN Vid_Txt_Draw_Box:PROC
-EXTRN Vid_Txt_Draw_Panel:Panel:PROC
+EXTRN Vid_Txt_Draw_Panel:PROC
 EXTRN Vid_Txt_Write_String:PROC
 
 
