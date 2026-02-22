@@ -29,7 +29,7 @@ EXTRN Vid_Txt_Write_String:PROC
     MenuTable   DW OFFSET SlotFile, OFFSET SlotEdit, OFFSET SlotSearch, OFFSET SlotHelp
 
     ; Define the Bar itself
-    MenuBar Tui_MenuBar < 4, 0, 70H, 0FH, OFFSET MenuTable>
+    MenuBar Tui_Menu_Bar < 4, 0, 70H, 0FH, OFFSET MenuTable>
 
 .CODE
 PUBLIC Draw_Editor_Layout
