@@ -49,7 +49,7 @@ Draw_Editor_Layout PROC
     MOV CH, 1                   ; Only 1 row high
     MOV AL, ' '                 
     MOV BL, 70H                 ; Black text on Grey background
-    MOB BH, 0                   ; No Border style (Style 0)
+    MOV BH, 0                   ; No Border style (Style 0)
     CALL Vid_Txt_Draw_Box
 
     ; --- Draw the Menu Items on Row 0 ---
