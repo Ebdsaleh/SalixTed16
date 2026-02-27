@@ -2,15 +2,9 @@
 ; --- SalixTed LAYOUT MODULE---
 TITLE SALIXTED_LAYOUT
 
-INCLUDE SALIX.INC
-
 .MODEL SMALL
-.STACK 100H
 
-EXTRN Vid_Txt_Draw_Box:PROC
-EXTRN Vid_Txt_Draw_Panel:PROC
-EXTRN Vid_Txt_Write_String:PROC
-
+INCLUDE SALIX.INC
 
 .DATA
     MsgTitle    DB " SalixTed 16 - v1.0 ", 0
@@ -54,7 +48,7 @@ Draw_Editor_Layout PROC
 
     ; --- Draw the Menu Items on Row 0 ---
     MOV DH, 0                   ; Always the top row
-    MOV BL, 70H                 ; Black test on Gray
+    MOV BL, 70H                 ; Black text on Gray
 
     ; File Menu
     MOV DL, 1                   ; Starting Column 1
@@ -84,18 +78,18 @@ Draw_Editor_Layout PROC
     MOV AL, ' '                 ; ' ' for Sidebar
     MOV BL, 07H                 ; Gray on Black
     MOV BH, 2                   ; Style 2 (Double Line)
-    CALL Vid_Txt_Draw_Box
+    CALL Vid_Txt_Draw_Panel
 
     ; --- 3. Drop the Editor Window ---
     MOV DL, 17                  ; Start at Column 17 (X)
     MOV DH, 1                   ; Start at Row 1 (Y)
-    MOV CL, 63
+    MOV CL, 62
 
     MOV CH, 23
     MOV AL, ' '                 ; ' ' for Editor
     MOV BL, 17H                 ; White on Blue
     MOV BH, 1                   ; Style 1 (Single Line)
-    CALL Vid_Txt_Draw_Box
+    CALL Vid_Txt_Draw_Panel
 
     ; --- 4. Drop the Footer, Status bar ---
     MOV DL, 0                   ; Start at Column 0 (X)

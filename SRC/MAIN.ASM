@@ -1,13 +1,14 @@
 ; SRC\MAIN.ASM
 
 TITLE SALIX_TED_16
-INCLUDE SALIX.INC
 
 .MODEL SMALL
+
 .STACK 100H
 
+INCLUDE SALIX.INC
+
 ; Declare our external SDK routines
-EXTRN Vid_Txt_Set_Mode:PROC
 EXTRN Draw_Editor_Layout:PROC
 
 .CODE
@@ -15,7 +16,7 @@ Main:
     MOV AX, @DATA
     MOV DS, AX
 
-    ; --- 0. Enter the Worksapce ---
+    ; --- 0. Enter the Workspace ---
     CALL Vid_Txt_Set_Mode
     ; ---------------------------------------------
     CALL Draw_Editor_Layout
