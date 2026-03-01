@@ -20,13 +20,17 @@ Main:
     CALL Vid_Txt_Set_Mode
     ; ---------------------------------------------
     CALL Draw_Editor_Layout
-
+Main_Loop:
     ; Wait for a key to terminate program
-    MOV AH, 00H
-    INT 16
+    CALL Kbd_Await_Keystroke
+    CMP AH, 01H                 ; 01H did the escape key get pressed?
+    JNE Main_Loop
+    
+    JMP Exit_Program
 
+Exit_Program:
     ; Exit to DOS
     MOV AX, 4C00H
     INT 21H
-
+    RET
 END Main
